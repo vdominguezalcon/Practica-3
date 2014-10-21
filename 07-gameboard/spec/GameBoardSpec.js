@@ -56,3 +56,34 @@
     colisionado con objetos de cierto tipo, no con todos los objetos.
 
 */
+
+describe("GameBoard",function() {
+        var gameBoard ; 
+        var canvas,ctx ; 
+        
+        beforeEach(function() {
+                loadFixtures("index.html") ; 
+                
+                canvas = $('#game')[0];
+	        expect(canvas).toExist();
+
+	        ctx = canvas.getContext('2d');
+	        expect(ctx).toBeDefined();
+	        gameBoard = new GameBoard() ;         
+        });
+
+        it("Gameboard.add()",function(){ //Vamos a comprobar que añade obj a objects
+                var obj1= {}
+                var obj2=gameBoard.add(obj1) ; //Ahora mismo el objeto 2 seria el objeto
+                expect(obj2).toBe(obj1) ; 
+        
+        
+        });
+
+
+
+
+
+
+
+});
