@@ -79,8 +79,14 @@ describe("GameBoard",function() {
         
         
         });
-
-
+        
+        it("Gameboard.overlap()",function(){
+                var obj1 ={x:0,y:0,w:3,h:3} ;
+                expect(gameBoard.overlap(obj1,obj1)).toBe(true) ;
+                expect(gameBoard.overlap(obj1,{x:1,y:1,w:3,h:3})).toBe(true) ; 
+        
+        
+        }); 
 
 
 
