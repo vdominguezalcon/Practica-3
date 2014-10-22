@@ -80,6 +80,28 @@ describe("GameBoard",function() {
         
         });
         
+        it("Gameboard.delete()",function(){
+                var obj1 = 2 ;
+                var obj2 = 5 ;
+                var obj3 = 7 ;
+                var obj4 =gameBoard.add(obj1) ;
+                var obj5 =gameBoard.add(obj2) ;
+                var obj6 =gameBoard.add(obj3) ; 
+                gameBoard.resetRemoved() ; //INicializa los objetos para borrarlos 
+                obj4=gameBoard.remove(obj1) ;
+                obj5=gameBoard.remove(obj2) ; 
+                obj6=gameBoard.remove(obj3) ; 
+                expect(gameBoard.removed[0]).toEqual(2) ;
+                expect(gameBoard.removed[1]).toEqual(5) ; 
+                expect(gameBoard.removed[2]).not.toEqual(8) ; 
+                gameBoard.finalizeRemoved() ; //LOs borra
+                
+                
+        
+        
+        
+        }); 
+        
         
         it("Gameboard.detect()",function(){
                 gameBoard.objects= [{obj1:"alfredo"},{obj1:"bautista"}] ;
