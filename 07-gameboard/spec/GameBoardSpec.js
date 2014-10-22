@@ -103,6 +103,14 @@ describe("GameBoard",function() {
         }); 
         
         
+        it("GameBoard.iterate()",function(){
+        
+        
+        
+        
+        }) ; 
+        
+        
         it("Gameboard.detect()",function(){
                 gameBoard.objects= [{obj1:"alfredo"},{obj1:"bautista"}] ;
                 
@@ -127,6 +135,15 @@ describe("GameBoard",function() {
         
         }) ; 
         
+        
+        it("GameBoard.draw()",function(){
+                spyOn(gameBoard,"draw") ; 
+                gameBoard.draw(ctx) ;
+                waits(200) ; //Esperamos un tiempo para que se carge
+                expect(gameBoard.draw).toHaveBeenCalled() ; 
+        
+        
+        }) ; 
         
         
         it("Gameboard.overlap()",function(){
