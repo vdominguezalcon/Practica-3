@@ -74,9 +74,14 @@ describe("GameBoard",function() {
 
         it("Gameboard.add()",function(){ //Vamos a comprobar que añade obj a objects
                 var obj1= {} ;
-                var obj2=gameBoard.add(obj1) ; //Ahora mismo el objeto 2 seria el objeto
-                expect(obj2).toBe(obj1) ; 
-        
+                var obj2=gameBoard.add(obj1) ; //Ahora mismo el objeto 2 seria el objeto 1 obj2 = {}
+                expect(obj2).toBe(obj1) ;
+                
+                var obj3 = 2 ;
+                var obj4= gameBoard.add(obj3); 
+                expect(obj4).toEqual(2) ;  
+                
+               
         
         });
         
@@ -95,10 +100,7 @@ describe("GameBoard",function() {
                 expect(gameBoard.removed[1]).toEqual(5) ; 
                 expect(gameBoard.removed[2]).not.toEqual(8) ; 
                 gameBoard.finalizeRemoved() ; //LOs borra
-                
-                
-        
-        
+                   
         
         }); 
         
@@ -127,8 +129,10 @@ describe("GameBoard",function() {
         
         
         it ("GameBoard.step()",function() {
-                var obj1={} ;
-                expect(gameBoard.step(obj1)).toBe(undefined) ;  //???
+                spyOn(gameBoard,"step") ;
+                gameBoard.step(ctx) ; 
+                waits(200) ;  
+                expect(gameBoard.step).toHaveBeenCalled ; //Para probar que ha sido llamado 
                 
         
         
@@ -154,6 +158,13 @@ describe("GameBoard",function() {
         
         
         }); 
+        
+        it("GameBoard.collide()",function() {
+        
+        
+        
+        
+        }) ; 
 
 
 
