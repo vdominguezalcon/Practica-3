@@ -73,17 +73,45 @@ describe("GameBoard",function() {
         });
 
         it("Gameboard.add()",function(){ //Vamos a comprobar que añade obj a objects
-                var obj1= {}
+                var obj1= {} ;
                 var obj2=gameBoard.add(obj1) ; //Ahora mismo el objeto 2 seria el objeto
                 expect(obj2).toBe(obj1) ; 
         
         
         });
         
+        
+        it("Gameboard.detect()",function(){
+                gameBoard.objects= [{obj1:"alfredo"},{obj1:"bautista"}] ;
+                
+               
+                var check = function() {
+                        return this.obj1 == "alfredo" ;
+                   };
+                expect(gameBoard.detect(check)).toBe(gameBoard.objects[0]) ; 
+        
+        
+        
+        }) ; 
+        
+        
+        
+        it ("GameBoard.step()",function() {
+                var obj1={} ;
+                expect(gameBoard.step(obj1)).toBe(undefined) ;  //???
+                
+        
+        
+        
+        }) ; 
+        
+        
+        
         it("Gameboard.overlap()",function(){
                 var obj1 ={x:0,y:0,w:3,h:3} ;
                 expect(gameBoard.overlap(obj1,obj1)).toBe(true) ;
                 expect(gameBoard.overlap(obj1,{x:1,y:1,w:3,h:3})).toBe(true) ; 
+                expect(gameBoard.overlap(obj1,{x:9,y:9,w:3,h:3})).toBe(false) ; 
         
         
         }); 
