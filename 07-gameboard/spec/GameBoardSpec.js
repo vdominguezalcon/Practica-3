@@ -105,21 +105,19 @@ describe("GameBoard",function() {
         }); 
         
         
-      /**  it("GameBoard.iterate()",function(){
-            gameBoard.objects = [{func1: function(){},func2:function() {}}] ; 
-            spyOn(gameBoard.objects[0], "func1") ;
-            spyOn(gameBoard.objects[0], "func2") ;
-            
-            gameBoard.iterate("func1","victor","manuel") ; 
+        it("GameBoard.iterate()",function(){
+            var doble =  {
 
-            expect(gameBoard.objects[0].f1).toHaveBeenCalledWith("victor","manuel") ; 
-            
-       
-        
-        
-        
+                draw: function() {}
+            } ;
+
+            spyOn(doble,"draw") ; 
+            gameBoard.add(doble) ;
+            gameBoard.iterate('draw',ctx) ; 
+            expect(doble.draw).toHaveBeenCalled() ; 
+                   
         }) ; 
-        **/
+        
         
         it("Gameboard.detect()",function(){
                 gameBoard.objects= [{obj1:"alfredo"},{obj1:"bautista"}] ;
@@ -128,7 +126,13 @@ describe("GameBoard",function() {
                 var check = function() {
                         return this.obj1 == "alfredo" ;
                    };
+
+                var unckeck = function() {
+                        return this.obj1 == "pepe" ;
+                };
+
                 expect(gameBoard.detect(check)).toBe(true) ; 
+                expect(gameBoard.detect(unckeck)).toBe(false) ; 
         
         
         
