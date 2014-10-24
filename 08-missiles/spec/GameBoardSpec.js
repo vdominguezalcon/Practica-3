@@ -123,15 +123,12 @@ describe("GameBoard",function() {
                 gameBoard.objects= [{obj1:"alfredo"},{obj1:"bautista"}] ;
                 
                
-                var check = function() {
-                        return this.obj1 == "alfredo" ;
-                   };
+              
 
                 var unckeck = function() {
                         return this.obj1 == "pepe" ;
                 };
 
-                expect(gameBoard.detect(check)).toBe(true) ; 
                 expect(gameBoard.detect(unckeck)).toBe(false) ; 
         
         
