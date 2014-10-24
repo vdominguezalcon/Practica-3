@@ -105,13 +105,21 @@ describe("GameBoard",function() {
         }); 
         
         
-        it("GameBoard.iterate()",function(){
-        
+      /**  it("GameBoard.iterate()",function(){
+            gameBoard.objects = [{func1: function(){},func2:function() {}}] ; 
+            spyOn(gameBoard.objects[0], "func1") ;
+            spyOn(gameBoard.objects[0], "func2") ;
+            
+            gameBoard.iterate("func1","victor","manuel") ; 
+
+            expect(gameBoard.objects[0].f1).toHaveBeenCalledWith("victor","manuel") ; 
+            
+       
         
         
         
         }) ; 
-        
+        **/
         
         it("Gameboard.detect()",function(){
                 gameBoard.objects= [{obj1:"alfredo"},{obj1:"bautista"}] ;
@@ -160,8 +168,13 @@ describe("GameBoard",function() {
         }); 
         
         it("GameBoard.collide()",function() {
-        
-        
+                gameBoard.objects = [{type :1, x:0,y:0,w:3,h:3} ] ;//La vamos a llamar con type
+                var obj1 = {x:12,y:11,w:10,h:9} ;
+                //var obj2 = {x:0,y:0,w:3,h:3} ; 
+                expect(gameBoard.collide(obj1,"1")).toBe(false) ; 
+                //expect(gameBoard.collide(obj2,"1")).toBe(false) ; 
+
+                     
         
         
         }) ; 
