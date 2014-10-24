@@ -128,7 +128,7 @@ describe("GameBoard",function() {
                 var check = function() {
                         return this.obj1 == "alfredo" ;
                    };
-                expect(gameBoard.detect(check)).toBe(gameBoard.objects[0]) ; 
+                expect(gameBoard.detect(check)).toBe(true) ; 
         
         
         
