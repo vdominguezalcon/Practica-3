@@ -50,7 +50,32 @@ describe("PlayerMissile",function() {
  
 
     it("step",function() {
+            SpriteSheet.map = {
+                draw: function(ctx, name, x, y) {},
+                missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }
+            }
+             pm = new PlayerMissile(1,1000);
 
+             pm.step(1) ; 
+            
+             expect(pm.x).toEqual(0) ; 
+             expect(pm.y).toEqual(290) ; 
+
+            //Ahora falta probar el remove 
+
+            var dummyBoard = { remove: function(obj) {} };
+
+            pm.board = dummyBoard;
+            spyOn(dummyBoard, "remove");
+            pm.step(-1+(-pm.h-pm.y)/pm.vy); 
+            expect(dummyBoard.remove).not.toHaveBeenCalled();
+
+
+            pm.step(1000+(-pm.h-pm.y)/pm.vy); 
+            expect(dummyBoard.remove).toHaveBeenCalled();
+            expect(dummyBoard.remove).toHaveBeenCalledWith(pm);
+
+            
 
     }) ;
 
