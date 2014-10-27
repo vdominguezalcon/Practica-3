@@ -49,6 +49,20 @@ describe("PlayerMissile",function() {
         });
  
 
+    it ("cargar misiles",function() {
+        SpriteSheet.map = {
+                draw: function(ctx, name, x, y) {},
+                missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }
+            }
+
+        var pm = new PlayerMissile(1,1000) ;
+        expect(pm.w).toEqual( SpriteSheet.map['missile'].w) ; 
+        expect(pm.h).toEqual( SpriteSheet.map['missile'].h) ;
+        expect(pm.x).toEqual( 1- SpriteSheet.map['missile'].w/2 ) ;
+        expect(pm.y).toEqual( 1000-SpriteSheet.map['missile'].h) ;
+ 
+    }) ; 
+
     it("step",function() {
             SpriteSheet.map = {
                 draw: function(ctx, name, x, y) {},
