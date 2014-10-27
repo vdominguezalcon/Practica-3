@@ -57,10 +57,22 @@ describe("PlayerMissile",function() {
     
     it("draw",function() {
     
+           SpriteSheet.map = {
+                draw: function(ctx, name, x, y) {},
+                missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }
+            }
+            pm = new PlayerMissile(1,1000);
+            spyOn(SpriteSheet, "draw");
+            pm.draw(ctx) ; 
+            expect(SpriteSheet.draw).toHaveBeenCalled();
+            expect(SpriteSheet.draw).toHaveBeenCalledWith(ctx,'missile', pm.x, pm.y); 
+            expect(SpriteSheet.draw.calls[0].args[0]).toEqual(ctx);
+            expect(SpriteSheet.draw.calls[0].args[0]).not.toEqual("missile");
+            expect(SpriteSheet.draw.calls[0].args[1]).toEqual("missile");
+            expect(SpriteSheet.draw.calls[0].args[2]).toEqual(pm.x);
+            expect(SpriteSheet.draw.calls[0].args[3]).toEqual(pm.y);
 
-
-
-    }) ; 
+       }) ; 
 
 
 
